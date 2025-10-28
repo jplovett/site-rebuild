@@ -1,5 +1,5 @@
-# template-site
-default web app site project
+# site-rebuild
+default web app site project using the template-site repo
 
 This project is built on node/parcel/bootstrap/sass.
 

@@ -1,0 +1,1 @@
+const fs = require('fs-extra'); fs.copySync('./src/snips', './dist/snips');

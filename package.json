@@ -1,12 +1,18 @@
 {
-  "name": "template-site",
-  "version": "1.0.0",
-  "description": "default web app site project",
+  "name": "site-rebuild",
+  "version": "1.0.1",
+  "description": "default web app site project, template-site repo",
   "scripts": {
+    "build:full": "node ./scripts/fullBuild.js",
+    "build:dev": "node ./scripts/fullBuild.js && parcel src/index.html --open",
+    "build:static": "node ./scripts/copyAssets.js && node ./scripts/copySnips.js",
     "dev": "parcel src/index.html --open",
-    "clean": "rimraf dist .parcel-cache",
-    "clean:build": "rimraf dist .parcel-cache && parcel build src/index.html --dist-dir dist --public-url ./ && npm run dev",
-    "build": "parcel build src/index.html --dist-dir dist --public-url ./ && npm run dev"
+    "clean:dist": "rimraf dist .parcel-cache",
+    "clean:Snips": "rimraf dist/snips",
+    "clean:Asets": "rimraf dist/assets",
+    "clean:all": "rimraf dist .parcel-cache && rimraf dist/snips && rimraf dist/assets",
+    "copy:Assets": "node ./scripts/copyAssets.js",
+    "copy:Snips": "node ./scripts/copySnips.js"
   },
   "repository": {
     "type": "git",
@@ -21,11 +27,12 @@
   "homepage": "https://github.com/jplovett/template-site#readme",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8",
-    "rimraf": "^6.0.1"
+    "bootstrap": "^5.3.8"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.0",
-    "parcel": "^2.16.0"
+    "fs-extra": "^11.3.2",
+    "parcel": "^2.16.0",
+    "rimraf": "^6.0.1"
   }
 }
